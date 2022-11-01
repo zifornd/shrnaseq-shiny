@@ -28,7 +28,8 @@ source("functions.R")
 
 feature1_style='border-left: 1.25px solid #f0f0f0;z-index:1;'
 feature2_style='border-left: 1.25px solid #f0f0f0;z-index:2;'
-title_style='height:60px;border-left: 1.25px solid #f0f0f0;border-bottom: 1.25px solid #f0f0f0;z-index:2;'
+title1_style='height:60px;border-left: 1.25px solid #f0f0f0;border-bottom: 1.25px solid #f0f0f0;z-index:2;'
+title2_style='height:20px;border-left: 1.25px solid #f0f0f0;z-index:2;'
 space1_style='height:40px;z-index:2;'
 space2_style='height:20px;border-left: 1.25px solid #f0f0f0;z-index:2;'
 space3_style='height:20px;border-left: 1.25px solid #f0f0f0;border-top: 1.25px solid #f0f0f0;z-index:2;'
@@ -98,40 +99,40 @@ ui <- fluidPage(
                            fluidRow(column(12, style = space3_style)),
                            fluidRow(column(12, plotlyOutput('indexcounts'), style = feature1_style)),
                            fluidRow(column(12, style= space2_style)),
-                           fluidRow(column(12, strong("Guide RNA counts per sample. Hover over each bar to get specific counts per sample"), style = title_style)),
+                           fluidRow(column(12, strong("Guide RNA counts per sample. Hover over each bar to get specific counts per sample"), style = title1_style)),
                            fluidRow(column(12, style = space1_style)),
                            
                            fluidRow(column(12, style = space3_style)),
                            fluidRow(column(12, plotlyOutput('shcounts'), style = feature1_style)),
                            fluidRow(column(12, style= space2_style)),
-                           fluidRow(column(12, strong("Density of guide RNA counts across all samples"), style = title_style)),
+                           fluidRow(column(12, strong("Density of guide RNA counts across all samples"), style = title1_style)),
                            fluidRow(column(12, style = space1_style)),
                            
                            fluidRow(column(12, style = space3_style)),
                            fluidRow(column(12, plotlyOutput('bcv'), style = feature1_style)),
                            fluidRow(column(12, style= space2_style)),
-                           fluidRow(column(12, strong("Variability in the screen as a functon of guide RNA abundance"), style = title_style)),
+                           fluidRow(column(12, strong("Variability in the screen as a functon of guide RNA abundance"), style = title1_style)),
                            fluidRow(column(12, style = space1_style)),
                            
                            fluidRow(column(12, style = space3_style)),
                            fluidRow(column(6, plotlyOutput('mds'), style = feature1_style),
                                     column(6, plotlyOutput('correctedmds'))),
                            fluidRow(column(12, style= space2_style)),
-                           fluidRow(column(12, strong("Multidimensional plot to visualise the relationships between samples, A) uncorrected and B) corrected for batch"), style = title_style)),
+                           fluidRow(column(12, strong("Multidimensional plot to visualise the relationships between samples, uncorrected A) and corrected for batch B)"), style = title1_style)),
                            fluidRow(column(12, style = space1_style)),
                            
                            fluidRow(column(12, style = space3_style)),
                            fluidRow(column(6, plotlyOutput('pca'), style = feature1_style),
                                     column(6, plotlyOutput('correctedpca'))),
                            fluidRow(column(12, style= space2_style)),
-                           fluidRow(column(12, strong("First two principal components to visualise the relationships between samples, A) uncorrected and B) corrected for batch"), style = title_style)),
+                           fluidRow(column(12, strong("First two principal components to visualise the relationships between samples, uncorrected A) and corrected for batch B)"), style = title1_style)),
                            fluidRow(column(12, style = space1_style)),
                            
                            fluidRow(column(12, style = space3_style)),
                            fluidRow(column(6, plotlyOutput('sampledist'), style = feature1_style),
                                     column(6, plotlyOutput('correctedsampledist'))),
                            fluidRow(column(12, style= space2_style)),
-                           fluidRow(column(12, strong("Distances between samples, A) uncorrected and B) corrected for batch"), style = title_style)),
+                           fluidRow(column(12, strong("Distances between samples, uncorrected A) and corrected for batch B)"), style = title1_style)),
                            fluidRow(column(12, style = space1_style))
                            ),
                   tabPanel("Differential expression",
@@ -140,28 +141,28 @@ ui <- fluidPage(
                            fluidRow(column(12, style = space3_style)),
                            fluidRow(column(12, plotlyOutput('hist'), style = feature1_style)),
                            fluidRow(column(12, style= space2_style)),
-                           fluidRow(column(12, strong("Histogram of guide RNA p values for the selected contrast, hover over bars to get further details"), style = title_style)),
+                           fluidRow(column(12, strong("Histogram of guide RNA p values for the selected contrast, hover over bars to get further details"), style = title1_style)),
                            fluidRow(column(12, style = space1_style)),
                         
                            fluidRow(column(12, style = space3_style)),
                            fluidRow(column(7, plotlyOutput('plotsmear'), style = feature1_style),
                                     column(5, plotlyOutput('volcano'))),
                            fluidRow(column(12, style= space2_style)),
-                           fluidRow(column(7, strong("Log fold-change (FC) against log counts-per-million (CPM) of the guide RNAs for the selected contrast. 
-                                                 Hover over points to get specific information on each guide RNA")
-                                           , style = title_style),
-                                    column(5, strong("Volcano plot of guide RNA for the selected contrast 
-                                                     Hover over points to get specific information on each guide RNA")
-                                           , style = 'height:60px;border-bottom: 1.25px solid #f0f0f0;')),
+                           fluidRow(column(7, strong("Log fold-change against log counts-per-million of the guide RNAs for the selected contrast.")
+                                           , style =title2_style),
+                                    column(5, strong("Volcano plot of guide RNA for the selected contrast."),
+                                           style = "height:20px;")),
+                           fluidRow(column(12, style = space2_style)),
+                           fluidRow(column(12, strong("Toggle logFC and FDR thresholds on the sidebar panel to change features of the above plots, hover over points to get specific information on each guide RNA."), style = title1_style)),
                            fluidRow(column(12, style = space1_style)),
                            
                            fluidRow(column(12, style = space3_style)),
-                           fluidRow(column(4, numericInput("topguides", "Select number of top guides", value = 5, min = 2, max = 30), style = feature2_style)),
+                           fluidRow(column(4, numericInput("topguides", "Select number of top guides to view:", value = 5, min = 2, max = 30), style = feature2_style)),
                            fluidRow(column(12, style = space2_style)),
                            fluidRow(column(6, plotlyOutput('de'), style = feature1_style),
                                     column(6, plotlyOutput('correctedde'))),
                            fluidRow(column(12, style= space2_style)),
-                           fluidRow(column(12, strong("Differential expression (logCPM) across samples for the top guide RNAs, A) uncorrected and B) corrected for batch"), style = title_style)),
+                           fluidRow(column(12, strong("Differential expression (logCPM) across samples for the top guide RNAs, uncorrected A) and corrected for batch B)"), style = title1_style)),
                            fluidRow(column(12, style = space1_style)),
                            
                            fluidRow(column(12, style = space3_style)),
@@ -170,7 +171,7 @@ ui <- fluidPage(
                            fluidRow(column(12, style = space2_style)),
                            fluidRow(column(12, DTOutput('detable'), style = feature1_style)),
                            fluidRow(column(12, style= space2_style)),
-                           fluidRow(column(12, strong("Table of differential expression (logCPM) across samples for each guide RNA."), style = title_style)),
+                           fluidRow(column(12, strong("Table of differential expression (logCPM) across samples for each guide RNA."), style = title1_style)),
                            fluidRow(column(12, style = space1_style))
                            ),
                   tabPanel("Gene level",
@@ -179,45 +180,47 @@ ui <- fluidPage(
                            fluidRow(column(12, style = space3_style)),
                            fluidRow(column(12, plotlyOutput('camerarank'), style = feature1_style)),
                            fluidRow(column(12, style= space2_style)),
-                           fluidRow(column(12, strong("Rank plot of competitive gene set  findings for the selected contrast"), style = title_style)),
+                           fluidRow(column(12, strong("Rank plot of competitive gene set  findings for the selected contrast."), style = title2_style)),
+                           fluidRow(column(12, strong("Toggle FDR threshold on the sidebar panel to highlight up and down regulated genes at differing FDR thresholds."), style = title1_style)),
                            fluidRow(column(12, style = space1_style)),
                            
                            fluidRow(column(12, style = space3_style)),
                            fluidRow(column(12, DTOutput('camera'), style = feature1_style)),
                            fluidRow(column(12, style= space2_style)),
-                           fluidRow(column(12, strong("Table of competitive gene set test"), style = title_style)),
+                           fluidRow(column(12, strong("Table of competitive gene set test"), style = title1_style)),
                            fluidRow(column(12, style = space1_style)),
                            
                            fluidRow(column(12, style = space3_style)),
                            fluidRow(column(12, plotlyOutput('generank'), style = feature1_style)),
                            fluidRow(column(12, style= space2_style)),
-                           fluidRow(column(12, strong("Gene level mean logFC rank plot across genes for the selected contrast. Change the logFC threshold on the left-hand side panel to change highlighted genes on plot"), style = title_style)),
+                           fluidRow(column(12, strong("Gene level mean logFC rank plot across genes for the selected contrast."), style = title2_style)),
+                           fluidRow(column(12, strong("Toggle logFC on the sidebar panel to highlight up and down regulated genes at differing logFC thresholds."), style = title1_style)),
                            fluidRow(column(12, style = space1_style)),
                            
                            fluidRow(column(12, style = space3_style)),
                            fluidRow(column(12, DTOutput('genelevel'), style = feature1_style)),
-                           fluidRow(column(12, strong("Table of gene level statistics for the selected contrast"), style = title_style)),
+                           fluidRow(column(12, strong("Table of gene level statistics for the selected contrast"), style = title1_style)),
                            fluidRow(column(12, style = space1_style)),
                            
                            fluidRow(column(12, style = space3_style)),
-                           fluidRow(column(6, selectInput("barcode_gene", "Select Gene", choices = ""), style = feature2_style)),
+                           fluidRow(column(6, selectInput("barcode_gene", "Select gene to view:", choices = ""), style = feature2_style)),
                            fluidRow(column(12, style = space2_style)),
                            fluidRow(column(12, plotOutput('barcode'), style = feature1_style)),
                            fluidRow(column(12, style= space2_style)),
-                           fluidRow(column(12, strong("Enrichment of guide RNAs across selected gene for the selected contrast"), style = title_style)),
+                           fluidRow(column(12, strong("Enrichment of guide RNAs across selected gene for the selected contrast"), style = title1_style)),
                            fluidRow(column(12, style = space1_style)),
                            ),
                   tabPanel("Enrichment",
                            fluidRow(column(12, style = 'height:20px')),
                            
                            fluidRow(column(12, style = space3_style)),
-                           fluidRow(column(4, numericInput("topgos", "Select number of top terms to view"
+                           fluidRow(column(4, numericInput("topgos", "Select number of top terms to view:"
                                                            , value = 10, min = 1, max =30), style = feature2_style)),
                            fluidRow(column(12, style = space2_style)),
                            fluidRow(column(6, plotlyOutput("upgoplot"), style = 'height:600px;border-left: 1.25px solid #f0f0f0;'),
                                     column(6, plotlyOutput("downgoplot"), style = 'height:600px;')),
                            fluidRow(column(12, style= space2_style)),
-                           fluidRow(column(6, strong("Top up-regulated gene onotology terms for the selected contrast"), style = title_style),
+                           fluidRow(column(6, strong("Top up-regulated gene onotology terms for the selected contrast"), style = title1_style),
                                     column(6, strong("Top down-regulated gene onotology terms for the selected contrast"), style = 'height:60px;border-bottom: 1.25px solid #f0f0f0;')),
                            fluidRow(column(12, style = space1_style)),
                            
@@ -225,24 +228,24 @@ ui <- fluidPage(
                            fluidRow(column(12, DTOutput('gotable'), style = feature1_style)),
                            fluidRow(column(12, style= space2_style)),
                            fluidRow(column(12, strong('Table of gene ontology (GO) results for the selected contrast. 
-                                                      The "Ont" refers to the ontology the GO term belongs to; Biological Process (BP), Cellular Component (CC) or Molecular Function (MF)'), style = title_style)),
+                                                      The "Ont" refers to the ontology the GO term belongs to; Biological Process (BP), Cellular Component (CC) or Molecular Function (MF)'), style = title1_style)),
                            fluidRow(column(12, style = space1_style)),
                            
                            fluidRow(column(12, style = space3_style)),
-                           fluidRow(column(4, numericInput("topkeggs", "Select number of top pathways to view"
+                           fluidRow(column(4, numericInput("topkeggs", "Select number of top pathways to view:"
                                                            , value = 10, min = 1, max = 30), style = feature2_style)),
                            fluidRow(column(12, style = space2_style)),
                            fluidRow(column(6, plotlyOutput("upkeggplot"), style = 'height:600px;border-left: 1.25px solid #f0f0f0;'),
                                     column(6, plotlyOutput("downkeggplot"), style = 'height:600px;')),
                            fluidRow(column(12, style= space2_style)),
-                           fluidRow(column(6, strong("Top up-regulated KEGG pathways for the selected contrast"), style = title_style),
+                           fluidRow(column(6, strong("Top up-regulated KEGG pathways for the selected contrast"), style = title1_style),
                                     column(6, strong("Top down-regulated KEGG pathways for the selected contrast"), style = 'height:60px;border-bottom: 1.25px solid #f0f0f0;')),
                            fluidRow(column(12, style = space1_style)),
                            
                            fluidRow(column(12, style = space3_style)),
                            fluidRow(column(12, DTOutput("keggtable"), style = feature1_style)),
                            fluidRow(column(12, style= space2_style)),
-                           fluidRow(column(12, strong("Table of KEGG pathway results for selected contrast"), style = title_style)),
+                           fluidRow(column(12, strong("Table of KEGG pathway results for selected contrast"), style = title1_style)),
                            fluidRow(column(12, style = space1_style)),
                            ),
                   tabPanel("Comparing contrasts",
@@ -253,13 +256,13 @@ ui <- fluidPage(
                            fluidRow(column(12, style = space2_style)),
                            fluidRow(column(12, plotlyOutput('guidecontrast'), style = feature1_style)),
                            fluidRow(column(12, style= space2_style)),
-                           fluidRow(column(12, strong("Plot comparing guide RNA logFC between contrasts"), style = title_style)),
+                           fluidRow(column(12, strong("Plot comparing guide RNA logFC between contrasts"), style = title1_style)),
                            fluidRow(column(12, style = space1_style)),
                            
                            fluidRow(column(12, style = space3_style)),
                            fluidRow(column(12, DTOutput('FCcontrast'), style = feature1_style)),
                            fluidRow(column(12, style= space2_style)),
-                           fluidRow(column(12, strong("Table of mean log fold-change of genes across contrasts"), style = title_style)),
+                           fluidRow(column(12, strong("Table of mean log fold-change of genes across contrasts"), style = title1_style)),
                            fluidRow(column(12, style = space1_style))
                            )
       )
@@ -297,7 +300,7 @@ server <- function(input, output, session) {
     as.numeric(input$logFC)})
   FDRthres <- reactive({
     validate(need(input$FDR != "", "Please specify FDR threshold in side panel"),
-             need((input$FDR <= 1 & input$FDR >=0), "Please specifiy a FDR threshold value between 0 and 1"))
+             need((input$FDR <= 1 & input$FDR >0), "Please specifiy a FDR threshold value above 0 and below 1"))
     as.numeric(input$FDR)})
   topguides <- reactive({
     validate(need(input$topguides != "", "Please specify number of top guides to view"),

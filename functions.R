@@ -228,20 +228,10 @@ detable <- function(data, inputcontrast, corrected) {
 }
 
 ##### Gene level #####
-
-camera <- function(data, inputcontrast) {
-  obj <- get('data')[[paste0(inputcontrast, "_camera")]]
-  colnames(obj) <- c("nGuides", "Direction", "Pvalue", "FDR", "Gene")
-  obj[,c(5,1:4)]
-}
 camerarank <- function(data, inputcontrast, FDRthres, s) {
   obj <- get('data')[[paste0(inputcontrast, "_camera")]]
   colnames(obj) <- c("nGuides", "Direction", "Pvalue", "FDR", "Gene")
   res <- as.data.frame(obj)
-  
-  if (min(res$FDR) > FDRthres) {
-    FDRthres=(min(res$FDR)+0.01)
-  }
   
   res$Status <- factor("NS", levels = c("Up", "NS", "Down"))
   res$Status[res$Direction == "Up" & res$FDR < FDRthres] <- "Up"
@@ -286,14 +276,12 @@ camerarank <- function(data, inputcontrast, FDRthres, s) {
   plt
 
 }
-genelevel <- function(data, inputcontrast) {
-  obj <- get('data')[[paste0(inputcontrast, "_genelevel")]]
-  colnames(obj) <- c("Gene", "nGuides", 	"Mean logFC", "IQR logFC",
-                  "Direction mean logFC",	"Direction smallest Pvalue",
-                  "Stouffer's Pvalue",	"Stouffer's FDR")
-  row.names(obj) <- NULL
-  obj
+camera <- function(data, inputcontrast) {
+  obj <- get('data')[[paste0(inputcontrast, "_camera")]]
+  colnames(obj) <- c("nGuides", "Direction", "Pvalue", "FDR", "Gene")
+  obj[,c(5,1:4)]
 }
+
 generank <- function(data, inputcontrast, FCthres, s) {
   obj <- get('data')[[paste0(inputcontrast, "_genelevel")]]
   colnames(obj) <- c("Gene", "nGuides", 	"Mean logFC", "IQR logFC",
@@ -344,6 +332,14 @@ generank <- function(data, inputcontrast, FCthres, s) {
   plt <- layout(p = plt, legend = list(itemsizing = "constant"))
   
   plt
+}
+genelevel <- function(data, inputcontrast) {
+  obj <- get('data')[[paste0(inputcontrast, "_genelevel")]]
+  colnames(obj) <- c("Gene", "nGuides", 	"Mean logFC", "IQR logFC",
+                  "Direction mean logFC",	"Direction smallest Pvalue",
+                  "Stouffer's Pvalue",	"Stouffer's FDR")
+  row.names(obj) <- NULL
+  obj
 }
 barcode <- function(data, inputcontrast, gene) {
   obj <- get('data')[[paste0(inputcontrast, "_lrt")]]
