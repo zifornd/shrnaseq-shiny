@@ -1,6 +1,6 @@
 # shrnaseq-shiny
 
-Shiny application for the output of the [shRNAseq](https://github.com/zifornd/shrnaseq) snakemake workflow of shRNA-seq and CRISPR-Cas9 genetic screen analysis using edgeR.
+This repository houses the a Shiny app to visualise and explore the output of the shRNAseq workflow of shRNA-seq and CRISPR-Cas9 genetic screen analysis. Before lauching this app you will need to run the workflow on your data. Details on how to run the shrnaseq workflow on your shRNA-seq or CRISPR-Cas9 genetic screening data can be found [here](https://github.com/zifornd/shrnaseq/).
 
 ## Usage
 
@@ -11,23 +11,23 @@ library(shiny)
 shiny::runGitHub('shrnaseq-shiny', 'zifornd')
 ```
 
-Alternatively you can clone the git repository, then use the `runApp()` function in RStudio as below.
+Alternatively you can clone the git repository, 
 
 ```bash 
 git clone https://github.com/zifornd/shrnaseq
 ```
-
+then use the `runApp()` function in RStudio as below.
 ```R
 library(shiny)
 setwd("~/shrnaseq-shiny")
 runApp()
 ```
 
-Once the application is loaded, upload the `shiny.rds` file found in `results` directory of your successfully run snakemake workflow.
+Once the application is loaded, upload the `shiny.rds` file found in `results` directory of your successfully run shrnaseq workflow. 
 
-## References
+## Citations
 
-For more information about Shiny, see [here](https://shiny.rstudio.com/). 
+For more information about Shiny from RStudio, see [here](https://shiny.rstudio.com/). 
 
 ### CRAN
 - rlang
