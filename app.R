@@ -1,6 +1,6 @@
 #### Install packages not yet installed ####
 
-cran_packages <- c("rlang", "shiny","shinyjs", "DT", "ggplot2", "RColorBrewer", "heatmaply", "plotly", "reshape", "tidyverse","bslib", "scales", "ggrepel")
+cran_packages <- c("rlang", "shiny","DT", "ggplot2", "RColorBrewer", "heatmaply", "plotly", "reshape", "tidyverse","bslib", "ggrepel", "scales")
 cran_installed_packages <- cran_packages %in% rownames(installed.packages())
 bioconductor_packages <- c("limma", "edgeR")
 bioconductor_installed_packages <- bioconductor_packages %in% rownames(installed.packages())
