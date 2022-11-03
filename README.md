@@ -14,7 +14,7 @@ shiny::runGitHub('shrnaseq-shiny', 'zifornd')
 Alternatively you can clone the git repository, 
 
 ```bash 
-git clone https://github.com/zifornd/shrnaseq
+git clone https://github.com/zifornd/shrnaseq-shiny
 ```
 then use the `runApp()` function in RStudio as below.
 ```R
