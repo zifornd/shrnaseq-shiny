@@ -1,5 +1,20 @@
 # shrnaseq-shiny
 
+[![RStudio community](https://img.shields.io/badge/community-shiny-blue?style=social&logo=rstudio&logoColor=75AADB)](https://community.rstudio.com/new-topic?category=shiny&tags=shiny)
+[![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
+
+
+## Table of Contents
+
+* [Overview](#overview)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [Authors](#authors)
+* [Acknowledgements](#acknowledgements)
+* [License](#license)
+
+## Overview
+
 This repository houses a Shiny app to visualise and explore the output of the shRNAseq workflow of shRNA-seq and CRISPR-Cas9 genetic screen analysis. Before lauching this app you will need to run the workflow on your data. Details on how to run the shrnaseq workflow on your shRNA-seq or CRISPR-Cas9 genetic screening data can be found [here](https://github.com/zifornd/shrnaseq/).
 
 ## Usage
@@ -25,7 +40,18 @@ runApp()
 
 Once the application is loaded, upload the `shiny.rds` file found in `results` directory of your successfully run shrnaseq workflow. 
 
-## Citations
+## Contributing
+
+See [contributing.md](CONTRIBUTING.md) for ways to get started.
+
+Please adhere to this project's [code of conduct](CODE_OF_CONDUCT.md).
+
+## Authors
+
+- [Claire Prince](https://github.com/prince-claire)
+- [James Ashmore](https://github.com/jma1991)
+
+## Acknowledgements
 
 For more information about Shiny from RStudio, see [here](https://shiny.rstudio.com/). 
 
@@ -46,3 +72,8 @@ For more information about Shiny from RStudio, see [here](https://shiny.rstudio.
 ### Bioconductor
 - limma
 - edgeR
+
+## License
+
+This workflow is licensed under the [MIT](LICENSE.md) license.  
+Copyright &copy; 2022, Zifo RnD Solutions
