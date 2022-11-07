@@ -1,4 +1,4 @@
-# shrnaseq-shiny <img align="right" width="80" src="images/logo.png">
+# shrnaseq-shiny <img align="right" width="150" src="images/logo.png">
 
 [![RStudio community](https://img.shields.io/badge/community-shiny-blue?style=social&logo=rstudio&logoColor=75AADB)](https://community.rstudio.com/new-topic?category=shiny&tags=shiny)
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
