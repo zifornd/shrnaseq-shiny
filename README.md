@@ -1,9 +1,8 @@
-# shrnaseq-shiny <img align="right" width="100" src="images/logo.png">
+# shrnaseq-shiny <img align="right" width="120" src="images/logo.png">
 
 [![RStudio community](https://img.shields.io/badge/community-shiny-blue?style=social&logo=rstudio&logoColor=75AADB)](https://community.rstudio.com/new-topic?category=shiny&tags=shiny)
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 
-<img width="900" src="images/app.png">
 ## Table of Contents
 
 * [Overview](#overview)
@@ -15,7 +14,9 @@
 
 ## Overview
 
-This repository houses a Shiny app to visualise and explore the output of the shRNAseq workflow of shRNA-seq and CRISPR-Cas9 genetic screen analysis. Before lauching this app you will need to run the workflow on your data. Details on how to run the shrnaseq workflow on your shRNA-seq or CRISPR-Cas9 genetic screening data can be found [here](https://github.com/zifornd/shrnaseq/).
+This repository houses a Shiny app to visualise and explore the output of the shRNAseq workflow of shRNA-seq and CRISPR-Cas9 genetic screen analysis. Before lauching this app you will need to run the workflow on your data. Details on how to run the shrnaseq workflow on your shRNA-seq or CRISPR-Cas9 genetic screening data can be found [here](https://github.com/zifornd/shrnaseq/). The shiny app homepage is shown below:
+
+<img width="900" src="images/app.png">
 
 ## Usage
 
