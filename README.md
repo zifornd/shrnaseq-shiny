@@ -1,4 +1,4 @@
-# shrnaseq-shiny
+# shrnaseq-shiny <img align="right" width="200" src="images/logo.png">
 
 [![RStudio community](https://img.shields.io/badge/community-shiny-blue?style=social&logo=rstudio&logoColor=75AADB)](https://community.rstudio.com/new-topic?category=shiny&tags=shiny)
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
@@ -32,6 +32,7 @@ Alternatively you can clone the git repository,
 git clone https://github.com/zifornd/shrnaseq-shiny
 ```
 then use the `runApp()` function in RStudio as below.
+
 ```R
 library(shiny)
 setwd("~/shrnaseq-shiny")
@@ -42,7 +43,7 @@ Once the application is loaded, upload the `shiny.rds` file found in `results` d
 
 ## Contributing
 
-See [contributing.md](CONTRIBUTING.md) for ways to get started.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for ways to get started.
 
 Please adhere to this project's [code of conduct](CODE_OF_CONDUCT.md).
 
